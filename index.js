@@ -1,3 +1,120 @@
+let numeros = [1, 2, 3]
+let pessoas = [{
+  idade: 18, nome: "Ana}, {idade: 19, nome: "Joao"}]
+
+//Uma concessionária tem CNPJ e endereço (rua, numero e bairro). Alguns carros em estoque (quantidade arbitraria). Cada carro tem marca, modelo e ano de fabricação.
+
+resposta do Enzo
+
+Sugar, yes, please
+Won't you come and put it down on me?
+I'm right here, 'cause I need
+
+const concessionaria = {
+    cnpj: "54.169.432/0001-50",
+    endereco:
+    {
+      rua: "Praça Mauá",
+      numero: 123,
+      bairro: "Mauá"
+    },
+    carros: [
+      {
+        marca: "byd",
+        modelo: "dolphin",
+        ano: "2023"
+      },
+      {
+        marca: "citroen",
+        modelo: "C3",
+        ano: "2017"
+      },
+      {
+        marca: "Honda",
+        modelo: "Civic",
+        ano: "1998"
+      }
+    ]
+  }
+
+//exibir o texto C3
+console.log(concessionaria.carros[1].modelo)
+
+//resposta do Rubio
+iterar sobre a coleção de carros, exibindo somente a marca de cada um
+//com segurança, ou seja, certifique-se de que o veiculo da vez tem a chave marca antes de acessar
+for(i = 0, i++, 
+
+for (let i = 0; i < concessionaria.carros.length; i++) {
+  // verificar se o carro possui modelo 
+  if (concessionaria.carros[i].modelo)
+
+    console.log(concessionaria.carros[i].modelo)
+}
+
+concessionaria.carros.forEach((x) => console.log(x?.modelo))
+
+concessionaria.carros.forEach((item) => {
+  item.marca ? console.log(item.marca) : null
+})
+
+const calculadora = {
+  somar: (a, b) => a + b,
+  subtrair: function (a, b) {
+    return a - b
+  }
+}
+
+const calculadora = {
+  somar: (a, b) => a + b,
+  subtrair: function (a, b) { return a - b },
+  dobrar: n => 2 * n
+}
+
+
+
+
+
+
+
+let calculadora = 
+console.log(calculadora.somar(2, 3)) //tem que ser arrow function sem {}
+console.log(calculadora.subtrair(3, 1))//tem que ser function regular
+
+
+
+//uma pessoa se chama Maria, tem 21 anos e mora na Rua b, numero 14
+//use um objeto aninhado
+let pessoa2 = {
+
+}
+//mostrar os dados de endereço mesclando [] e .
+
+
+
+//uma pessoa se chama João e tem 17 anos
+let pessoa = {
+  nome: "João",
+  "idade da pessoa": 17
+}
+
+//. e []
+console.log(pessoa.nome)
+// console.log(pessoa.idade da pessoa)
+console.log(pessoa['idade da pessoa'])
+console.log(Object.keys(pessoa))
+//GSON
+
+//JSON: Javascript Object Notation
+//objeto Javascript literal
+// let pessoa = {
+//   1: "Ana",
+//   'data': new Date(),
+//   somar: (a, b) => a + b,
+// }
+
+// console.log((pessoa[1]))
+
 
 
 // function eAgora(){
