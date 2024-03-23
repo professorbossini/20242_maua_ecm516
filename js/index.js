@@ -1,17 +1,104 @@
-function demorada(){
-  //demora 2 segundos
-  const dataAtualMais2 = new Date().getTime() + 2000
-  while(new Date().getTime() <= dataAtualMais2); //NO-OP: No operation
-  const d = 8 + 4
-  console.log("estou na demorada, qse acabando...")
-  return d  
-}
-setTimeout(() => {
-  console.log('primeira')
-  demorada()
-  setTimeout(() => console.log('segunda'), 1000)
-}, 0)
-console.log('script principal terminando...') 
+
+
+
+// function calculoRapidinho(n){
+//   //se n >= 1, produzir a continha conhecida
+//   //caso contrario, produzir "somente valores positivos, por favor"
+//   //claro, use promises
+//   // return new Promise((resolve, reject) => {
+//   //   resolve(n / 2 * (n + 1))
+//   // })
+//   // return Promise.resolve(n / 2 * (n + 1))
+// }
+
+// calculoRapidinho(10)
+// .then(res =>{ 
+//   console.log(res)
+//   calculoRapidinho(11).then((res) => {
+//     console.log(res)
+//     calculoRapidinho(-1).then(() => {})
+//   })
+// })
+// .catch(erro => console.log(`Deu erro: ${erro}`))
+
+// calculoRapidinho(11)
+// .then(res => {
+//   console.log(res)
+//   return Promise.resolve(res + 1)
+// })
+// .then(res => {
+//   console.log(res)
+//   return Promise.resolve(res + 2)
+// })
+// .then(res => {
+//   console.log(res)
+//   return Promise.resolve(res + 2)
+// })
+
+
+
+// //1 + 2 + 3 + ... + n - 1 + n
+// const calculadoDemorado = (n) => {
+//   let p = new Promise(function(resolve, reject){
+//     let res = 0
+//     for(let i = 1; i <= n; i++) res += i
+//     resolve(res)
+//   })
+//   return p
+// }
+
+// const promise = calculadoDemorado(10)
+// //then e catch
+// promise.then((res) => {console.log(res)})
+
+// const resultado = calculadoDemorado(10)
+// console.log(resultado)
+
+
+// const fs = require('fs')
+// const abrirArquivo = (nomeArquivo) => {
+//   const exibirConteudo = function(erro, conteudo){
+//     if(erro)
+//       console.log(`Deu Erro: ${erro}`)
+//     else{
+//       console.log(conteudo.toString())
+//       const dobro = +conteudo.toString() * 2;
+//       const finalizar = function(erro){
+//         console.log("Salvou o dobro com sucesso")
+//       }
+//       fs.writeFile('dobro.txt', dobro.toString(), finalizar)
+//     }
+//   }
+//   fs.readFile(nomeArquivo, exibirConteudo)
+// }
+// abrirArquivo("arquivo.txt")
+
+
+
+
+
+// const executa = (f) =>{
+//   f()
+// }
+
+// //evento acontece...
+
+// onclick(executa(() => {}))
+
+// function demorada(){
+//   //demora 2 segundos
+//   const dataAtualMais2 = new Date().getTime() + 2000
+//   while(new Date().getTime() <= dataAtualMais2); //NO-OP: No operation
+//   const d = 8 + 4
+//   console.log("estou na demorada, qse acabando...")
+//   return d  
+// }
+// setTimeout(() => {
+//   console.log('primeira')
+//   demorada()
+//   setTimeout(() => console.log('segunda'), 1000)
+// }, 0)
+// console.log('script principal terminando...') 
 
 
 
