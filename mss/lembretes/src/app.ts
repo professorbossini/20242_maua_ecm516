@@ -5,6 +5,10 @@ import axios from 'axios'
 const app = express()
 app.use(express.json())
 
+const {
+  PORT
+} = process.env
+
 /*
   {
     "1": {
@@ -43,5 +47,4 @@ app.post('/lembretes', (req, res) => {
   res.json(lembrete)
 })
 
-const PORT: number = 4000
 app.listen(PORT, () => console.log(`Lembretes. Porta ${PORT}.`))
