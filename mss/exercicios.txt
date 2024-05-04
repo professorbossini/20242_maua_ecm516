@@ -1,3 +1,21 @@
+04/05/2024 - 01
+- Fazer com que o mss de lembretes emita um evento do tipo LembreteCriado
+- Fazer com que o mss de observações emita um evento do tipo ObservacaoCriada
+- Implementar uma versão inicial do mss de consulta
+- Considere as seguintes interfaces para os eventos:
+
+{
+  type: LembreteCriado,
+  payload: //proprio lembrete
+}
+{
+  type: ObservacaoCriada,
+  payload: //propria observacoes
+}
+
+Resultado esperado:
+Deve ser possível fazer GET /lembretes direcionado ao mss de consulta. Ele deve devolver a base consolidada: todos os lembretes, cada qual associado à sua lista de observações.
+
 27/04/2024 - 02
 - Trabalhar no mss de observações
 - Definir a base como lista
