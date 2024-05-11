@@ -44,7 +44,17 @@ app.post('/lembretes', (req, res) => {
   }
   lembretes[id] = lembrete
   id = (+id + 1).toString()
+  axios.post('http://localhost:10000/eventos', {
+    type: 'LembreteCriado',
+    payload: lembrete
+  })
   res.json(lembrete)
+})
+
+app.post('/eventos', (req, res) => {
+  try{
+    console.log(req.body)
+  }catch(e){} //descarta eventos não interessantes
 })
 
 app.listen(PORT, () => console.log(`Lembretes. Porta ${PORT}.`))

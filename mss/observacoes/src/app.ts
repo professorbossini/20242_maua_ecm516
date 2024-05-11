@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 const app = express()
 app.use(express.json())
@@ -11,6 +11,7 @@ const { PORT } = process.env
 interface Observacao{
   id: string;
   texto: string;
+  lembreteId: string;
 }
 
 const base: Record <string, Observacao[]> = {}
@@ -37,9 +38,13 @@ app.post('/lembretes/:id/observacoes', (req, res) => {
   const idObs = uuidv4()
   const { texto } = req.body
   const observacoes: Observacao[] = base[req.params.id] || []
-  const observacao: Observacao = {id: idObs, texto}
+  const observacao: Observacao = {id: idObs, texto, lembreteId: req.params.id}
   observacoes.push(observacao)
   base[req.params.id] = observacoes
+  axios.post('http://localhost:10000/eventos', {
+    type: 'ObservacaoCriada',
+    payload: observacao
+  })
   res.status(201).json(observacao)
 })
 //GET /lembretes/1/observacoes obtem a lista de observacoes do lembrete 1
@@ -47,6 +52,15 @@ app.get('/lembretes/:id/observacoes', (req, res) => {
   res.status(200).json(base[req.params.id] || [])
 })
 
+app.post('/eventos', (req, res) => {
+  try{
+    console.log(req.body)
+  }
+  catch(e){} //descarte de eventos que não são de interesse
+  res.end()
+})
+
+class Seila extends Error{}
 app.listen(PORT, () => console.log(`Observacoes. Porta: ${PORT}.`))
 
 
