@@ -1,3 +1,8 @@
+18/05/2024
+
+01:
+- Fazer o mss de classificacaos
+
 04/05/2024 - 01
 - Fazer com que o mss de lembretes emita um evento do tipo LembreteCriado
 - Fazer com que o mss de observações emita um evento do tipo ObservacaoCriada
