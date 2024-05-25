@@ -12,6 +12,19 @@ interface Observacao{
   id: string;
   texto: string;
   lembreteId: string;
+  status: string;
+}
+
+const funcoes: Record <string, Function> = {
+  ObservacaoClassificada: (observacao: Observacao): void => {
+    const obsParaAtualizar: Observacao | undefined = 
+    base[observacao.lembreteId].find((o: Observacao) => o.id === observacao.id)
+    obsParaAtualizar!.status = observacao.status
+    axios.post('http://localhost:10000/eventos', {
+      type: 'ObservacaoAtualizada',
+      payload: obsParaAtualizar
+    })
+  }
 }
 
 const base: Record <string, Observacao[]> = {}
@@ -38,7 +51,12 @@ app.post('/lembretes/:id/observacoes', (req, res) => {
   const idObs = uuidv4()
   const { texto } = req.body
   const observacoes: Observacao[] = base[req.params.id] || []
-  const observacao: Observacao = {id: idObs, texto, lembreteId: req.params.id}
+  const observacao: Observacao = {
+    id: idObs, 
+    texto: texto, 
+    lembreteId: req.params.id, 
+    status: 'aguardando'
+  }
   observacoes.push(observacao)
   base[req.params.id] = observacoes
   axios.post('http://localhost:10000/eventos', {
@@ -55,6 +73,7 @@ app.get('/lembretes/:id/observacoes', (req, res) => {
 app.post('/eventos', (req, res) => {
   try{
     console.log(req.body)
+    funcoes[req.body.type](req.body.payload)
   }
   catch(e){} //descarte de eventos que não são de interesse
   res.end()

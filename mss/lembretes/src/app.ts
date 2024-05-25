@@ -55,6 +55,7 @@ app.post('/eventos', (req, res) => {
   try{
     console.log(req.body)
   }catch(e){} //descarta eventos não interessantes
+  res.end()
 })
 
 app.listen(PORT, () => console.log(`Lembretes. Porta ${PORT}.`))

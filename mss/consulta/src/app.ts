@@ -17,7 +17,12 @@ const funcoes: Record < string, Function >= {
     const observacoes = baseConsolidada[observacao.lembreteId]['observacoes'] || []
     observacoes.push(observacao)
     baseConsolidada[observacao.lembreteId]['observacoes'] = observacoes
-  }
+  },
+  ObservacaoAtualizada: (observacao: Observacao): void => {
+    const observacoes = baseConsolidada[observacao.lembreteId]['observacoes']
+    const indice: number = observacoes!.findIndex(o => o.id === observacao.id)
+    observacoes![indice] = observacao
+  } 
 }
 
 interface Observacao{
