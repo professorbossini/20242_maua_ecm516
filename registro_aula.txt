@@ -1,4 +1,4 @@
 estudamos sobre servicos
 retomar reconfigurando a porta como variavel de shell
 =====================================================
-estudamos o inicio d ekubernetes retomar com servicos
+estudamos o inicio de kubernetes retomar com servicos
