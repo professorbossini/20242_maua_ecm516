@@ -16,8 +16,21 @@ spec:
     spec:
       containers:
         - name: lembretes
-          image: rodbossini/ecm516-20242-lembretes:0.0.1
+          image: rodbossini/ecm516-20242-lembretes:latest
           resources:
             limits:
               memory: 256Mi
               cpu: 1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lembretes-clusterip-service
+spec:
+  selector:
+    app: lembretes
+  ports:
+    - name: lembretes
+      protocol: TCP
+      port: 4000
+      targetPort: 4000

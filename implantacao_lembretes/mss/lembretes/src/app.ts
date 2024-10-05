@@ -44,7 +44,7 @@ app.post('/lembretes', (req, res) => {
   }
   lembretes[id] = lembrete
   id = (+id + 1).toString()
-  axios.post('http://localhost:10000/eventos', {
+  axios.post('http://barramento-service:10000/eventos', {
     type: 'LembreteCriado',
     payload: lembrete
   })
@@ -58,4 +58,8 @@ app.post('/eventos', (req, res) => {
   res.end()
 })
 
-app.listen(PORT, () => console.log(`Lembretes. Porta ${PORT}.`))
+app.listen(PORT, () => {
+  console.log('Nova versão')
+  console.log('Yet another version')
+  console.log(`Lembretes. Porta ${PORT}.`)
+})
